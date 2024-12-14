@@ -82,7 +82,11 @@ if __name__ == '__main__':
 
         elif 'open leetcode' in query: 
             speak("Opening, Leetcode....") 
-            webbrowser.get('chrome').open("leetcode.com") 
+            webbrowser.get('chrome').open("leetcode.com")
+
+        elif 'open portal' in query:
+            speak("Opening, PSIT ERP Portal......")
+            webbrowser.get('chrome').open("erp.psit.ac.in/")     
 
         elif 'open code' in query:
             speak("Opening, Visual Studio Code!")
@@ -91,9 +95,4 @@ if __name__ == '__main__':
 
         elif 'shutdown yourself' in query:
             speak("Bye Boss, I hope you have a nice day")
-            break
-
-
-        else:
-            speak("Sorry Boss, I am not be able to understand!")
             break
