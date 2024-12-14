@@ -2,11 +2,16 @@ import pyttsx3
 import datetime
 import speech_recognition as sr
 import wikipedia
+import webbrowser
+import time
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 # print(voices[1].id)
 engine.setProperty('voice', voices[0].id)
+
+chrome_path = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path))
 
 def speak(audio):
     engine.say(audio)
@@ -55,3 +60,19 @@ if __name__ == '__main__':
             results = wikipedia.summary(query, sentences=2)
             speak("According to Wikipedia")
             speak(results)
+
+        elif 'open youtube' in query:
+            speak("Opening Youtube....")
+            webbrowser.get('chrome').open("youtube.com")
+
+        elif 'open google' in query:
+            speak("Opening Google....")
+            webbrowser.get('chrome').open("google.com")
+
+        elif 'open chat' in query:
+            speak("Opening, chatGPT....")
+            webbrowser.get('chrome').open("chat.openai.com/")
+
+        elif 'shutdown yourself' in query:
+            speak("Bye Boss, I hope you have a nice day")
+            break
