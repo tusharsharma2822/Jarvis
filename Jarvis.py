@@ -4,6 +4,7 @@ import speech_recognition as sr
 import wikipedia
 import webbrowser
 import time
+import os
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -19,12 +20,14 @@ def speak(audio):
 
 def wishMe():
     hour = int(datetime.datetime.now().hour)
-    if hour >= 0 and hour < 12:
-        speak("Good Morning, Boss!")
-    elif hour >= 12 and hour < 18:
-        speak("Good Afternoon, Boss!")
+    if hour >= 5 and hour < 12:
+        speak("Good Morning Boss!")
+    elif hour >= 12 and hour < 16:
+        speak("Good Afternoon Boss!")
+    elif hour >= 16 and hour < 22:
+        speak("Good Evening Boss!")
     else:
-        speak("Good Evening, Boss!")
+        speak("Good Night Boss!")
 
     speak("I am Jarvis, Your personal assitant, and please tell me how may I help you?")    
 
@@ -62,17 +65,35 @@ if __name__ == '__main__':
             speak(results)
 
         elif 'open youtube' in query:
-            speak("Opening Youtube....")
+            speak("Opening, Youtube....")
             webbrowser.get('chrome').open("youtube.com")
 
         elif 'open google' in query:
-            speak("Opening Google....")
+            speak("Opening, Google....")
             webbrowser.get('chrome').open("google.com")
+
+        elif 'open spotify' in query:
+            speak("Opening, Spotify....")
+            webbrowser.get('chrome').open("open.spotify.com")    
 
         elif 'open chat' in query:
             speak("Opening, chatGPT....")
             webbrowser.get('chrome').open("chat.openai.com/")
 
+        elif 'open leetcode' in query: 
+            speak("Opening, Leetcode....") 
+            webbrowser.get('chrome').open("leetcode.com") 
+
+        elif 'open code' in query:
+            speak("Opening, Visual Studio Code!")
+            codePath = "C:\\Users\\tusha\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            os.startfile(codePath)
+
         elif 'shutdown yourself' in query:
             speak("Bye Boss, I hope you have a nice day")
+            break
+
+
+        else:
+            speak("Sorry Boss, I am not be able to understand!")
             break
