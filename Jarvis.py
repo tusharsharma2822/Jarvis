@@ -64,6 +64,10 @@ if __name__ == '__main__':
             speak("According to Wikipedia")
             speak(results)
 
+        elif 'Jarvis' in query:
+            speak("Boss!")
+            speak("How may I help you?")
+
         elif 'open youtube' in query:
             speak("Opening, Youtube....")
             webbrowser.get('chrome').open("youtube.com")
@@ -92,6 +96,14 @@ if __name__ == '__main__':
             speak("Opening, Visual Studio Code!")
             codePath = "C:\\Users\\tusha\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
+
+        elif 'open chrome' in query:
+            speak("Opening, Chrome")
+            os.startfile(chrome_path)    
+
+        elif 'open github' in query:
+            speak("Opening, Github.....")
+            webbrowser.get('chrome').open("github.com/tusharsharma2822")    
 
         elif 'shutdown yourself' in query:
             speak("Bye Boss, I hope you have a nice day")
